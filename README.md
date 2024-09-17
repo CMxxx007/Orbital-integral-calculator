@@ -1,1 +1,39 @@
 # Orbital-integral-calculator
+Classical orbital integral calculator 
+###########################################################################################################################################
+*Literature
+########################################################################################################################################
+1. K. Alder, A. Bohr, T. Huus, B. R. Mottelson, and A. Winther. Study of nuclear structure by electromagnetic excitation with accelerated ions. Rev. Mod. Phys., 28(4):432542, Oct 1956.
+2. Kurt Alder and Aage Winter. Electromagnetic excitation. 1975.
+3. ANP 1
+4. A. Winther K. Alder. Tables of the classical orbital integrals in coulomb excitation. Dan. Mat. Fys. Medd., 31(CERN-56-30):174, 1956.
+########################################################################################################################################
+DESCRIPTION: Calculates value of Classical orbital integral numerically using Gauss-Legendre quadrature for user specified lambda, mu,     	      vartheta and adiabaticity parameter
+###########################################################################################################################################
+REQUIREMENTS and INSTALLATION: python3, g++ compiler that accepts the c++11 standard or greater.
+1. Extract contents & cd OI_cal
+2. To compile:./compile.sh 
+##########################################################################################################################################
+USAGE: ./OI_cal then enter lambda, mu, vartheta and adiabaticity as prompted. Final line printed in terminal is value of OI for lambda, mu, vartheta and adiabaticity parameter given by user. 
+For GUI: python3 OI_cal_ui_test.py
+#######################################################################################################################################
+Functions and description of c++ functions used to compute orbital integral numerically using Gauss-Legendre quadrature
+####################################################################################################################################
+FUNCTION 											DESCRIPTION 
+####################################################################################################################################
+double ang_degrees(double angle)                       					converts angle in radians to degrees
+double vl(double m_p, double beamenergy_lab)           					calculates beam velocity in units (c)
+double r_o(double ap)                                  					calculates nuclear radius (fm)
+double red_mass(double mp, double mt)                  					calculates reduced mass
+double a(int zp,int zt,double mp, double mt, double beamenergy_lab)				calculates half distance of closest approach (fm)
+double eccent(double vvv)                                            			calculates  eccentricity from angle in radians
+double xi_if(double de, int zp,int zt,double mp, double mt, double beamenergy_lab)   	calculates adiabaticity parameter
+double c1(double eps, double omeg)                                                   	function to compute collision function
+double c2(double eps, double omeg)                                                   	function to compute collision function
+double c3(double eps, double omeg)								function to compute collision function
+double c4(double eps, double omeg)								function to compute collision function
+complex<double> colfselec(int lam, int mu, double eps, double omeg)                  	function to select collision function for lambda & mu 
+complex<double> func0(int lam, int mu, double eps, double adia, double omeg)         	integrand of orbital integral 
+complex<double> glf(int l,int m,double thtt,double addd,double omin,double omax,int steps)  function to compute orbital integral numerically using Gauss-Legendre quadrature
+#################################################################################################################################
+
